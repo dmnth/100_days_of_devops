@@ -32,5 +32,3 @@ Not a copy-paste dump — the reasoning is the point.
 
 Every day lives in its own directory with a `README.md` walkthrough, plus any
 scripts, manifests, or playbooks the task produced.
-
-## Layout
