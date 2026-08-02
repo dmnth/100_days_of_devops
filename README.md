@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/progress-1%2F100-1f6feb?style=flat-square" alt="Progress">
-  <img src="https://img.shields.io/github/last-commit/dmth/100_days_of_devops?style=flat-square&color=2ea043" alt="Last commit">
+  <img src="https://img.shields.io/github/last-commit/dmnth/100_days_of_devops?style=flat-square&color=2ea043" alt="Last commit">
   <img src="https://img.shields.io/github/repo-size/dmnth/100_days_of_devops?style=flat-square" alt="Repo size">
   <img src="https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square" alt="License">
 </p>
