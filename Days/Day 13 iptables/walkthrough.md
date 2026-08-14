@@ -10,17 +10,6 @@ Restrict inbound TCP on a service port so that **only the load-balancer host
 (`stlb01`) is allowed**, and everyone else is rejected — persisted across reboots
 via `iptables-services`.
 
-> [!WARNING]
-> **Corrections applied to the original notes.** Three things were fixed before
-> this was written up, because copied as-is the procedure would not have worked:
->
-> 1. **Path:** `/etc/systemconfig/iptables` → **`/etc/sysconfig/iptables`** (the
->    original path does not exist).
-> 2. **Port:** the task text says **6300**, but the pasted rules used `--dport 6100`.
->    This runbook uses **6300** — swap it if your lab actually specifies 6100.
-> 3. **Rule order:** an INPUT chain is **first-match-wins**, so the `ACCEPT` for
->    `stlb01` must come **before** the `REJECT`. Using `-A` (append) in the right
->    order is clearer and safer than relying on `-I` insertion reversing the order.
 
 ## 1. Install iptables-services on each app host
 
