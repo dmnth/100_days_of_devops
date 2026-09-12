@@ -28,7 +28,7 @@
 
 A hundred consecutive DevOps tasks, each with a full writeup: the problem as it
 was handed to me, what I actually ran, what broke, and *why* the fix works.
-Not a copy-paste dump — the reasoning is the point.
+``Not`` a copy-paste dump — the reasoning is the point.
 
 Every day lives in its own directory with a `README.md` walkthrough, plus any
 scripts, manifests, or playbooks the task produced.
