@@ -4,7 +4,9 @@ https://easyengine.io/tutorials/php/fpm-status-page/
 
 https://www.php.net/manual/en/install.fpm.configuration.php
 
+Configure fpm with nginx:
 
+https://www.php.net/manual/en/install.unix.nginx.php
 
 Check if dnf package installer has specific module listed in repo:
 
