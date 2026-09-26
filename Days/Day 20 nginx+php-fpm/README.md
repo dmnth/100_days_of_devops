@@ -19,10 +19,10 @@ https://www.php.net/manual/en/install.unix.nginx.php
 a. Install `nginx` on `app server 1` , configure it to use port `8091` and its document root should be `/var/www/html`.
 
 ```bash
-```
 sudo dnf install nginx
 /etc/nginx/nginx.con
 start, enable, check status with systemctl
+```
 
 b. Install `php-fpm` version `8.3` on `app server 1`, it must use the unix socket `/var/run/php-fpm/default.sock` (create the parent directories if don't exist).
 
