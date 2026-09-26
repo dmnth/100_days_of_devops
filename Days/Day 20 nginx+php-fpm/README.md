@@ -44,6 +44,12 @@ sudo dnf remove php82*
 # Create symlinks from `php` to actual PHP binary
 sudo dnf install php83-syspaths -y
 ```
+Fpm configuration file search. Because, that's why.
+
+```bash
+find / -type f -name www.conf 2>/dev/null
+/etc/opt/remi/php83/php-fpm.d/www.conf
+```
 
 Note on unix sockets: 
 
@@ -53,12 +59,6 @@ True to the core Unix philosophy that **"everything is a file,"** Linux treats a
 
 **FPM creates it.** In the pool config (RHEL: `/etc/php-fpm.d/www.conf`), the `listen` directive is what makes the socket:
 
-Fpm configuration file search, because it's not in default location
-
-```bash
-find / -type f -name www.conf 2>/dev/null
-/etc/opt/remi/php83/php-fpm.d/www.conf
-```
 
 **`user` / `group` — who the PHP processes run as**
 
