@@ -1,10 +1,3 @@
-https://easyengine.io/tutorials/php/directly-connect-php-fpm/
-https://easyengine.io/tutorials/php/fpm-status-page/
-
-https://www.php.net/manual/en/install.fpm.configuration.php
-
-
-
 Check if dnf package installer has specific module listed in repo:
 
 ```bash
@@ -22,8 +15,6 @@ https://daily.dev/blog/linux-user-groups-and-permissions-guide/
 How to configure php-fpm with nginx:
 
 https://www.php.net/manual/en/install.unix.nginx.php
-
-Properly install the php-fpm with config - no need
 
 a. Install `nginx` on `app server 1` , configure it to use port `8091` and its document root should be `/var/www/html`.
 
