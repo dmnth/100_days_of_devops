@@ -1,10 +1,3 @@
-https://easyengine.io/tutorials/php/directly-connect-php-fpm/
-https://easyengine.io/tutorials/php/fpm-status-page/
-
-https://www.php.net/manual/en/install.fpm.configuration.php
-
-
-
 Check if dnf package installer has specific module listed in repo:
 
 ```bash
@@ -23,15 +16,13 @@ How to configure php-fpm with nginx:
 
 https://www.php.net/manual/en/install.unix.nginx.php
 
-Properly install the php-fpm with config - no need
-
 a. Install `nginx` on `app server 1` , configure it to use port `8091` and its document root should be `/var/www/html`.
 
 ```bash
-```
 sudo dnf install nginx
 /etc/nginx/nginx.con
 start, enable, check status with systemctl
+```
 
 b. Install `php-fpm` version `8.3` on `app server 1`, it must use the unix socket `/var/run/php-fpm/default.sock` (create the parent directories if don't exist).
 
@@ -53,6 +44,12 @@ sudo dnf remove php82*
 # Create symlinks from `php` to actual PHP binary
 sudo dnf install php83-syspaths -y
 ```
+Fpm configuration file search. Because, that's why.
+
+```bash
+find / -type f -name www.conf 2>/dev/null
+/etc/opt/remi/php83/php-fpm.d/www.conf
+```
 
 Note on unix sockets: 
 
@@ -62,12 +59,6 @@ True to the core Unix philosophy that **"everything is a file,"** Linux treats a
 
 **FPM creates it.** In the pool config (RHEL: `/etc/php-fpm.d/www.conf`), the `listen` directive is what makes the socket:
 
-Fpm configuration file search, because it's not in default location
-
-```bash
-find / -type f -name www.conf 2>/dev/null
-/etc/opt/remi/php83/php-fpm.d/www.conf
-```
 
 **`user` / `group` — who the PHP processes run as**
 
