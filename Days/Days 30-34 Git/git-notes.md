@@ -196,3 +196,22 @@ To /opt/news.git
 ls /opt/news.git/refs/tags/
 release-2026-03-10
 ```
+
+post-update hook:
+
+```bash
+#!/bin/bash
+# Runs in the bare repo after a push; $@ = list of updated refs
+
+for ref in "$@"; do
+    if [ "$ref" = "refs/heads/master" ]; then
+        TAG="release-$(date +%F)"
+        if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
+            echo "Tag $TAG already exists, skipping"
+        else
+            git tag "$TAG" refs/heads/master
+            echo "Created tag $TAG"
+        fi
+    fi
+done
+```
