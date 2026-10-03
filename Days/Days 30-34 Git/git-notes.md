@@ -197,7 +197,7 @@ ls /opt/news.git/refs/tags/
 release-2026-03-10
 ```
 
-post-update hook:
+More appropriate post-update hook code sample:
 
 ```bash
 #!/bin/bash
