@@ -172,7 +172,8 @@ Task is to create a hook that is triggered after the `master` branch receives an
 export GIT_COMMITER_DATE=$(date +%F)
 cd /opt/news.git/hooks/
 mv post-update.sample post-update
-vi post-update 
+vi post-update
+# Added `exec git tag release-$GIT_COMMITER_DATE`
 cd /usr/src/kodekloudrepos/news/
 [natasha@ststor01 news]$ git status
 On branch feature
