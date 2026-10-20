@@ -1,3 +1,8 @@
+---
+title: "Running Apache with Docker Compose: A Step-by-Step Write-Up"
+description: "Deploying an httpd container with Docker Compose: mistakes, fixes, and volume mount methods."
+---
+
 # Running Apache with Docker Compose: A Step-by-Step Write-Up
 
 *How I deployed an `httpd` container with Docker Compose, the mistakes I made along the way, and how each one was found and fixed.*
@@ -14,7 +19,7 @@ The task was to run an Apache web server in a Docker container on **App Server 1
 4. Port **80** inside the container must be reachable on port **6200** of the host.
 5. The host directory **`/opt/sysops`** should be served as the website content (Apache's document root, `/usr/local/apache2/htdocs`).
 
-If you just want the answer, jump to [Section 4](#4-the-final-working-file). If you want to understand *why* it looks the way it does, and avoid the same traps, read on.
+If you just want the answer, jump to Section 4, "The final working file". If you want to understand *why* it looks the way it does, and avoid the same traps, read on.
 
 ---
 
@@ -235,6 +240,7 @@ docker compose up -d
 
 **Step 4: confirm every requirement.**
 
+{% raw %}
 ```bash
 docker ps --format '{{.Names}}\t{{.Image}}\t{{.Ports}}'
 # Expected: httpd    httpd:latest    0.0.0.0:6200->80/tcp
@@ -245,6 +251,7 @@ docker inspect httpd --format '{{range .Mounts}}{{.Type}} {{.Source}} -> {{.Dest
 curl -I http://localhost:6200
 # Expected: HTTP/1.1 200 OK
 ```
+{% endraw %}
 
 **If `curl` returns 403 Forbidden**, there are two common reasons:
 - `/opt/sysops` is empty. A bind mount shows exactly what's in the host folder, so add an `index.html`.
